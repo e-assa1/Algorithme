@@ -1,0 +1,39 @@
+Algorithme AnalysePhrase
+// Cet algorithme lit une phrase caractère par caractère
+// et affiche la longueur, le nombre de mots et le nombre de voyelles.
+
+Variables :
+    caractere : caractère
+    longueur, nbMots, nbVoyelles : entier
+    precedent : caractère
+    phrase : chaîne
+
+Début
+    longueur ← 0
+    nbMots ← 0
+    nbVoyelles ← 0
+    precedent ← ' '  // pour détecter le début du premier mot
+
+    Afficher "Entrez une phrase terminée par un point :"
+    Lire phrase
+
+    Pour i de 1 à longueur(phrase) faire
+        caractere ← phrase[i]
+
+        longueur ← longueur + 1
+
+        Si caractere est dans {'a','e','i','o','u','y','A','E','I','O','U','Y'} alors
+            nbVoyelles ← nbVoyelles + 1
+        FinSi
+
+        Si caractere ≠ ' ' ET precedent = ' ' alors
+            nbMots ← nbMots + 1
+        FinSi
+
+        precedent ← caractere
+    FinPour
+
+    Afficher "Longueur de la phrase : ", longueur
+    Afficher "Nombre de mots : ", nbMots
+    Afficher "Nombre de voyelles : ", nbVoyelles
+Fin
